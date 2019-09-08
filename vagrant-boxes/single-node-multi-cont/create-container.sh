@@ -73,6 +73,10 @@ then
 	echo "-----------------------------------------------"
 	echo "Setting bridge up"
 	ip link set dev br0 up
+	echo "Making all traffic to 10.100.1.0/24 via br0"
+	ip route del 10.100.1.0/24 dev veth-cont1
+	ip route del 10.100.1.0/24 dev veth-cont2
+	ip route add 10.100.1.0/24 dev br0
 	exit 0
 else
 
