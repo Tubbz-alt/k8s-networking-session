@@ -45,8 +45,12 @@ kubectl get nodes -o json | jq '.items[].status.addresses' ## See the IP is 10.0
 
 
 Credit ----
+https://kccna18.sched.com/speaker/kristen.f.jacobs
 https://www.youtube.com/watch?v=6v_BDHIgOY8&t=694s Container Networking From Scratch - Kristen Jacobs, Oracle
-
-
+https://github.com/kristenjacobs/container-networking
+https://www.gabriel.urdhr.fr/2016/01/12/ip-over-udp-with-socat/
+https://www.rubyguides.com/2012/07/socat-cheatsheet/
+https://medium.com/@copyconstruct/socat-29453e9fc8a6
+http://www.dest-unreach.org/socat/doc/socat-tun.html
 Vagrant----
 vagrant box list
