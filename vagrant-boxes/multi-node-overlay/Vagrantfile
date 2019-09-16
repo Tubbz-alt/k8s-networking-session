@@ -3,30 +3,25 @@
 
 Vagrant.configure("2") do |config|
 
+  config.vm.box_check_update = false
+  config.vm.box = "ubuntu/xenial64"
+
   # Multibox configuration
   config.vm.define "leader" do |leader|
-	leader.vm.box = "ubuntu/xenial64"
-	leader.vm.box_check_update = false
 	leader.vm.hostname = "leader"
 	leader.vm.network "private_network", ip: "10.0.0.11"
-	leader.vm.provision "shell", inline: <<-SHELL
-	apt-get install bridge-utils
-	apt-get install socat
-	sudo apt-get install tshark
-	SHELL
   end
 
   config.vm.define "follower" do |follower|
-	follower.vm.box = "ubuntu/xenial64"
-	follower.vm.box_check_update = false
 	follower.vm.hostname = "follower"
 	follower.vm.network "private_network", ip: "10.0.0.12"
-	follower.vm.provision "shell", inline: <<-SHELL
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
 	apt-get install bridge-utils
 	apt-get install socat
 	sudo apt-get install tshark
 	SHELL
-  end
 
 
 end
