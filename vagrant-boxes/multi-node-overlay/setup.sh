@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./env.sh
+source /vagrant/env.sh
 
 create_namespace()
 {	

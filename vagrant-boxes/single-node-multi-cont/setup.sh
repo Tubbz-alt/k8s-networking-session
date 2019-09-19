@@ -5,7 +5,7 @@ create_namespace()
 	NS_NAME=$1
 	INNER_IP=`echo $3|tr -d '"'`
 	OUTER_IP=`echo $2|tr -d '"'`
-	GATEWAY=`echo $2 | cut -c1-10`
+	GATEWAY=`echo $2 | cut -c1-11`
 
 	is_ns_exists=`ip netns list | grep -c $NS_NAME`
 	if [ $is_ns_exists -eq 1 ]

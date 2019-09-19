@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./env.sh
+source /vagrant/env.sh
 pkill socat
 echo "Cleaning up namespace and bridge"
 ip netns delete $NS_NAME
