@@ -1,3 +1,13 @@
+suspend-all:
+	cd ./vagrant-boxes/single-node-single-cont;\
+	vagrant suspend;\
+	cd ../single-node-multi-cont;\
+	vagrant suspend;\
+	cd ../multi-node-l2;\
+	vagrant suspend;\
+	cd ../multi-node-overlay;\
+	vagrant suspend;\
+
 setup-all:
 	cd ./vagrant-boxes/single-node-single-cont;\
 	vagrant up;\
