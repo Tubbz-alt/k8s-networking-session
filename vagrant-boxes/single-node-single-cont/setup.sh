@@ -43,12 +43,5 @@ create_namespace()
 	ip netns exec $NS_NAME ip route add default via $GATEWAY
 }
 
-if [ -z "${CLEAN_UP}" ]
-then
-	create_namespace "cont1" 10.100.1.1/24 10.100.1.2/24
-	exit 0
-fi
-
-echo "Cleaning up namespace"
-ip netns delete cont1
+create_namespace "cont1" 192.168.1.1/24 192.168.1.2/24
 

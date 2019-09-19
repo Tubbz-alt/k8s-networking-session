@@ -54,39 +54,29 @@ create_namespace()
 }
 
 
-if [ -z "${CLEAN_UP}" ]
+
+is_bridge_exists=`brctl show | grep -c br0`
+
+if [ $is_bridge_exists -eq 1 ] 
 then
-	is_bridge_exists=`brctl show | grep -c br0`
-
-	if [ $is_bridge_exists -eq 1 ] 
-	then
-		ip link set dev br0 down
-		brctl delbr br0
-	fi
-
-	echo "Adding bridge br0"
-	ip link add name br0 type bridge
-	echo "-----------------------------------------------"
-	create_namespace "cont1" 10.100.1.1/24 10.100.1.2/24
-	echo "-----------------------------------------------"
-	create_namespace "cont2" 10.100.1.3/24 10.100.1.4/24
-	echo "-----------------------------------------------"
-	echo "Setting bridge up"
-	ip link set dev br0 up
-	echo "Making all traffic to 10.100.1.0/24 via br0"
-	ip route del 10.100.1.0/24 dev veth-cont1
-	ip route del 10.100.1.0/24 dev veth-cont2
-	ip route add 10.100.1.0/24 dev br0
-	exit 0
-else
-
-	echo "Cleaning up namespace and bridge"
-	ip netns delete cont1
-	ip netns delete cont2
 	ip link set dev br0 down
 	brctl delbr br0
-	exit 0
 fi
+
+echo "Adding bridge br0"
+ip link add name br0 type bridge
+echo "-----------------------------------------------"
+create_namespace "cont1" 192.168.1.1/24 192.168.1.2/24
+echo "-----------------------------------------------"
+create_namespace "cont2" 192.168.1.3/24 192.168.1.4/24
+echo "-----------------------------------------------"
+echo "Setting bridge up"
+ip link set dev br0 up
+echo "Making all traffic to 10.100.1.0/24 via br0"
+ip route del 192.168.1.0/24 dev veth-cont1
+ip route del 192.168.1.0/24 dev veth-cont2
+ip route add 192.168.1.0/24 dev br0
+
 
 
 
