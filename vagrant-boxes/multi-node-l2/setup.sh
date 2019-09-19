@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./env.sh
+source /vagrant/env.sh
 
 create_namespace()
 {	
@@ -68,9 +68,9 @@ echo "-----------------------------------------------"
 echo "Setting bridge up"
 ip link set dev br0 up
 echo "Setting route to another node"
-ip route add $TO_NETWORK_IP/$CONTAINER_CIDR via $TO_NODE_IP dev enp0s8
+ip route add $TO_NETWORK_IP/24 via $TO_NODE_IP dev enp0s8
 echo "Enabling IP forwarding"
 sysctl -w net.ipv4.ip_forward=1
 echo "Deleting some default route"
-sudo ip route del $NETWORK_IP/$CONTAINER_CIDR dev veth-cont1
-sudo ip route del $NETWORK_IP/$CONTAINER_CIDR dev veth-cont2
+sudo ip route del $NETWORK_IP/24 dev veth-cont1
+sudo ip route del $NETWORK_IP/24 dev veth-cont2
