@@ -38,11 +38,9 @@ setup-snmc:
 	vagrant ssh;
 setup-mnl2:
 	cd ./vagrant-boxes/multi-node-l2;\
-	vagrant up;\
-	vagrant ssh;
+	vagrant up;
 setup-mnol:
 	cd ./vagrant-boxes/multi-node-overlay;\
-	vagrant up;\
-	vagrant ssh;
+	vagrant up;
 	
 	
