@@ -4,8 +4,8 @@
 ### [Day - 1](README-day1.md)
 	- Container networking primitives
 	- Kubernetes networking the big picture
-	- Container level networking
-	- Pod level networking (L2)
+	- Pod level networking on single nodes
+	- Pod level networking on two nodes(L2)
 	- Demo
 ### [Day - 2]((README-day2.md))
 	- Recap
