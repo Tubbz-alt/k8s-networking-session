@@ -7,7 +7,7 @@
 	- Pod level networking on single nodes
 	- Pod level networking on two nodes(L2)
 	- Demo
-### [Day - 2]((README-day2.md))
+### [Day - 2](README-day2.md)
 	- Recap
 	- What is overlay networking concept
 	- Pod level networking (Overlay)

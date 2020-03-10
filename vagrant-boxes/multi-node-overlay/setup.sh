@@ -81,4 +81,3 @@ echo "Enabling IP forwarding"
 sysctl -w net.ipv4.ip_forward=1
 echo "Deleting some default route"
 ip route del $NETWORK_IP/$CONTAINER_CIDR dev veth-cont1
-ip route del $NETWORK_IP/$CONTAINER_CIDR dev tun0
